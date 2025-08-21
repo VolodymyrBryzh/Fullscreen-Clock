@@ -1,0 +1,6 @@
+{
+  "name": "Projector Clock",
+  "description": "A minimalist digital clock designed for high-contrast projection on a second display. Features a large, easy-to-read interface with the current time and date.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
