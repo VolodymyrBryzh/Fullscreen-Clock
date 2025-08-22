@@ -1,6 +1,6 @@
 {
-  "name": "Projector Clock",
-  "description": "A minimalist digital clock designed for high-contrast projection on a second display. Features a large, easy-to-read interface with the current time and date.",
+  "name": "Проекторний годинник",
+  "description": "Мінімалістичний цифровий годинник, розроблений для висококонтрастної проекції на другий дисплей. Має великий, зручний для читання інтерфейс з поточним часом та датою.",
   "requestFramePermissions": [],
   "prompt": ""
 }

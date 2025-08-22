@@ -37,7 +37,7 @@ function App(): React.ReactNode {
     }
 
     if (!window.getScreenDetails) {
-      alert('Your browser does not support the Window Management API, which is required to project to a second screen.');
+      alert('Ваш браузер не підтримує Window Management API, який необхідний для проектування на другий екран.');
       return;
     }
 
@@ -48,7 +48,7 @@ function App(): React.ReactNode {
       const secondaryScreen = details.screens.find(s => !s.isPrimary);
 
       if (!secondaryScreen) {
-        alert('No secondary screen detected. Connect another display and try again.');
+        alert('Другий екран не виявлено. Підключіть інший дисплей і спробуйте ще раз.');
         return;
       }
 
@@ -60,10 +60,10 @@ function App(): React.ReactNode {
     } catch (err) {
       // Handle permission denial gracefully.
       if (err instanceof DOMException && err.name === 'NotAllowedError') {
-        alert('Permission to manage windows was denied. Please allow this permission in your browser settings to use the projector feature.');
+        alert('Дозвіл на керування вікнами було відхилено. Будь ласка, надайте цей дозвіл у налаштуваннях вашого браузера, щоб використовувати функцію проектора.');
       } else {
-        console.error("Error opening projector window:", err);
-        alert('An unexpected error occurred while trying to open the projector window.');
+        console.error("Помилка відкриття вікна проектора:", err);
+        alert('Сталася неочікувана помилка під час спроби відкрити вікно проектора.');
       }
     }
   }, [projectorWindow]);
@@ -104,25 +104,25 @@ function App(): React.ReactNode {
         {!isProjectorOpen ? (
           <button
             onClick={openProjector}
-            className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-colors"
-            title="Open the clock on a second display"
+            className="px-4 py-2 bg-black text-gray-300 font-semibold rounded-lg border border-gray-700 hover:bg-gray-900 hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-75 transition-colors"
+            title="Відкрити годинник на другому дисплеї"
           >
-            Project Clock
+            Проектувати
           </button>
         ) : (
           <button
             onClick={closeProjector}
-            className="px-4 py-2 bg-red-600 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 transition-colors"
-            title="Close the projector window"
+            className="px-4 py-2 bg-black text-gray-300 font-semibold rounded-lg border border-gray-700 hover:bg-gray-900 hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-75 transition-colors"
+            title="Закрити вікно проектора"
           >
-            Stop Projecting
+            Зупинити
           </button>
         )}
       </div>
 
       <Clock time={currentTime} />
       <footer className="absolute bottom-4 text-xs text-gray-700">
-        Press F11 for Full Screen Mode
+        Натисніть F11 для повноекранного режиму
       </footer>
     </main>
   );

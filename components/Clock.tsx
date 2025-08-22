@@ -5,17 +5,15 @@ interface ClockProps {
   time: Date;
 }
 
-const formatTimePart = (num: number): string => num.toString().padStart(2, '0');
-
-const timeFormatter = new Intl.DateTimeFormat('en-US', {
+const timeFormatter = new Intl.DateTimeFormat('uk-UA', {
   hour: '2-digit',
   minute: '2-digit',
   second: '2-digit',
   hour12: false,
 });
 
-const dateFormatter = new Intl.DateTimeFormat('en-US', {
-  weekday: 'long',
+const dateFormatter = new Intl.DateTimeFormat('uk-UA', {
+  weekday: 'short',
   year: 'numeric',
   month: 'long',
   day: 'numeric',
@@ -26,11 +24,11 @@ export const Clock: React.FC<ClockProps> = ({ time }) => {
   const formattedDate = dateFormatter.format(time);
 
   return (
-    <div className="flex flex-col items-center justify-center select-none cursor-default">
-      <div className="font-mono text-8xl sm:text-9xl md:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-bold text-gray-100 tracking-wider">
+    <div className="flex flex-col items-center justify-center select-none cursor-default text-center">
+      <div className="font-mono text-[clamp(4rem,17vw,20rem)] font-bold text-gray-100 tracking-wider leading-none">
         {formattedTime}
       </div>
-      <div className="font-sans text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-400 uppercase tracking-widest mt-4">
+      <div className="font-sans text-[clamp(1.25rem,2.5vw,3rem)] text-gray-400 uppercase tracking-widest mt-4">
         {formattedDate}
       </div>
     </div>
